@@ -1,0 +1,6 @@
+*~
+*pyc
+Makefile
+.git
+data
+*.ipynb
