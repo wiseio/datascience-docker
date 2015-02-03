@@ -1,5 +1,7 @@
 # datascience-docker
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wiseio/datascience-docker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Containers and material for the hackday at wiseio HQ.
 
 ## Introduction ##
