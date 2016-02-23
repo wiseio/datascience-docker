@@ -40,7 +40,7 @@ RUN pip install plotly
 RUN pip install gensim
 
 # get all the nltk data
-RUN python -m nltk.downloader all
+# RUN python -m nltk.downloader all
 
 ENV PEM_FILE /key.pem
 # $PASSWORD will get `unset` within notebook.sh, turned into an IPython style hash

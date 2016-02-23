@@ -13,7 +13,7 @@ Set a few environment variables locally (add later to `.bash_profile` if you lik
 export WISEDS_CODE_DIR="$(PWD)"           # or wherever you want to code
 export WISEDS_DATA_DIR="$(PWD)/data"      # likewise.
 export IPYTHON_PASSWORD=MakeAPassword # not this!
-alias wiseds="docker run -d -p 80:8888 -v $(PWD):/workspace/ -v $(PWD)/data:/workspace/data -e "PASSWORD=$IPYTHON_PASSWORD" wiseio/datascience-base ; echo 'Now go to your browser: http://$(boot2docker ip). The password is $IPYTHON_PASSWORD' "
+alias wiseds="docker run -d -p 80:8888 -v $(PWD):/workspace/ -v $(PWD)/data:/workspace/data -e "PASSWORD=$IPYTHON_PASSWORD" wiseio/datascience-base ; echo 'Now go to your browser: http://$(docker-machine ip). The password is $IPYTHON_PASSWORD' "
 ```
 
 Assuming you have docker installed, run this to start up a notebook server over HTTPS.
@@ -24,10 +24,10 @@ docker run -d -p 80:8888 -v $WISEDS_CODE_DIR:/workspace/ -v $WISEDS_DATA_DIR:/wo
 
 You'll now be able to access your notebook at https://localhost with password MakeAPassword (please change the environment variable above).
 
-If you are on OSX, you'll need to know the name of your VM from boot2docker:
+If you are on OSX, you'll need to know the name of your VM from docker-machine:
 
 ```
- boot2docker ip
+ docker-machine ip
 ```
 
 You'll then connect via `http://<ip>`
