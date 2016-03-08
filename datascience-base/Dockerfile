@@ -23,11 +23,9 @@ RUN wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O 
     && conda clean -i -l -t -y \
     && rm miniconda.sh
 
-# Get the pip packages
+# Get the pip packages and clean up
 ADD requirements.txt /
-RUN tempdir=$(mktemp -d /tmp/wheelhouse-XXXXX) \
-    && pip install --download=$tempdir -r /requirements.txt \
-    && rm -fr $tempdir
+RUN pip install -r /requirements.txt && rm -rf /root/.cache/pip/*
 
 ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
