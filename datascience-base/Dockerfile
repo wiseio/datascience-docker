@@ -4,6 +4,10 @@ MAINTAINER Wise.io, Inc. <help@wise.io>
 
 ENV DEBIAN_FRONTEND noninteractive
 
+ENV PATH /anaconda/bin:$PATH
+# For image inheritance.
+ONBUILD ENV PATH /anaconda/bin:$PATH
+
 # Install packages ... change the timezone line if you're not in Pacific time
 RUN apt-get -y update && apt-get install -y wget nano locales curl unzip wget openssl libhdf5-dev libpq-dev \
     && apt-get clean && dpkg-reconfigure locales && locale-gen en_US.UTF-8 \
@@ -27,9 +31,7 @@ RUN tempdir=$(mktemp -d /tmp/wheelhouse-XXXXX) \
 
 ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
-ENV PATH /anaconda/bin:$PATH
-# For image inheritance.
-ONBUILD ENV PATH /anaconda/bin:$PATH
+
 
 ENV PEM_FILE /key.pem
 # $PASSWORD will get `unset` within notebook.sh, turned into an IPython style hash
